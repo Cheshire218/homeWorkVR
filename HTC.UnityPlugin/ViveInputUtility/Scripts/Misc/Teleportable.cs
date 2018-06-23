@@ -27,7 +27,7 @@ namespace HTC.UnityPlugin.Vive
 
         public TeleportButton teleportButton = TeleportButton.Pad;
 
-        private Coroutine teleportCoroutine;
+        protected Coroutine teleportCoroutine;
 
         public Material reticleMaterial { get { return m_reticleMaterial; } set { m_reticleMaterial = value; } }
 
@@ -110,7 +110,7 @@ namespace HTC.UnityPlugin.Vive
 
         private bool m_steamVRFadeInitialized;
 
-        public IEnumerator StartTeleport(Vector3 position, float duration)
+        public virtual IEnumerator StartTeleport(Vector3 position, float duration)
         {
 #if VIU_STEAMVR
             var halfDuration = Mathf.Max(0f, duration * 0.5f);
